@@ -50,7 +50,6 @@ public class AuthorController {
         authorService.update(author);
         return authorMapper.mapToDto(author);
     }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         authorService.delete(id);

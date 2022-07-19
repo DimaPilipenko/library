@@ -15,4 +15,9 @@ public interface BookDao {
     Book update (Book book);
 
     void delete(Long id);
+
+    List<Book> getByAuthor(String authorName);
+    Optional<Book> getMostSellingByAuthor(String authorName);
+
+    Optional<Book> getMostPublishedByAuthor(String authorName);
 }

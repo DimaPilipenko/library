@@ -1,14 +1,19 @@
 package com.example.library.controller;
 
-import com.example.library.dto.request.AuthorRequestDto;
 import com.example.library.dto.request.BookRequestDto;
-import com.example.library.dto.response.AuthorResponseDto;
 import com.example.library.dto.response.BookResponseDto;
-import com.example.library.model.Author;
 import com.example.library.model.Book;
 import com.example.library.service.BookService;
 import com.example.library.service.mapper.BookMapper;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,5 +62,22 @@ public class BookController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         bookService.delete(id);
+    }
+
+    @GetMapping("/by-author")
+    public List<BookResponseDto> getByAuthor(@RequestParam String authorName) {
+        return bookService.getByAuthor(authorName).stream()
+                .map(bookMapper:: mapToDto)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/by-author/most-selling")
+    public BookResponseDto getMostSellingByAuthor(@RequestParam String authorName) {
+        return bookMapper.mapToDto(bookService.getMostSellingByAuthor(authorName));
+    }
+
+    @GetMapping("/by-author/most-published")
+    public BookResponseDto getMostPublishedByAuthor(@RequestParam String authorName) {
+        return bookMapper.mapToDto(bookService.getMostPublishedByAuthor(authorName));
     }
 }
