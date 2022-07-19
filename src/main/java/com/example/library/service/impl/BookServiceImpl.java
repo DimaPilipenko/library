@@ -40,4 +40,23 @@ public class BookServiceImpl implements BookService {
     public void delete(Long id) {
     bookDao.delete(id);
     }
+
+    @Override
+    public List<Book> getByAuthor(String authorName) {
+        return bookDao.getByAuthor(authorName);
+    }
+
+    @Override
+    public Book getMostSellingByAuthor(String authorName) {
+        return bookDao.getMostSellingByAuthor(authorName).orElseThrow(
+                () -> new RuntimeException("Can't get a book by author name: " + authorName)
+        );
+    }
+
+    @Override
+    public Book getMostPublishedByAuthor(String authorName) {
+        return bookDao.getMostPublishedByAuthor(authorName).orElseThrow(
+                () -> new RuntimeException("Can't get a book by author name: " + authorName)
+        );
+    }
 }

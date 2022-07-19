@@ -23,7 +23,6 @@ public class BookMapper implements RequestDtoMapper<BookRequestDto, Book>,
         book.setPublishedAmount(dto.getPublishedAmount());
         book.setSoldAmount(dto.getSoldAmount());
         book.setAuthor(authorService.get(dto.getAuthorId()));
-
         return book;
     }
 
@@ -35,6 +34,6 @@ public class BookMapper implements RequestDtoMapper<BookRequestDto, Book>,
         bookResponseDto.setPublishedAmount(book.getPublishedAmount());
         bookResponseDto.setSoldAmount(book.getSoldAmount());
         bookResponseDto.setAuthorId(book.getAuthor().getId());
-        return null;
+        return bookResponseDto;
     }
 }

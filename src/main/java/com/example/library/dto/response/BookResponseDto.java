@@ -1,7 +1,5 @@
 package com.example.library.dto.response;
 
-import javax.persistence.*;
-
 public class BookResponseDto {
     private Long id;
     private String bookName;
