@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class AuthorRequestDto {
     private String authorName;
-    private LocalDateTime birthDate;
+//    private LocalDateTime birthDate;
     private int phone;
     private String email;
 
@@ -19,13 +19,13 @@ public class AuthorRequestDto {
         this.authorName = authorName;
     }
 
-    public LocalDateTime getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDateTime birthDate) {
-        this.birthDate = birthDate;
-    }
+//    public LocalDateTime getBirthDate() {
+//        return birthDate;
+//    }
+//
+//    public void setBirthDate(LocalDateTime birthDate) {
+//        this.birthDate = birthDate;
+//    }
 
     public int getPhone() {
         return phone;
@@ -47,7 +47,7 @@ public class AuthorRequestDto {
     public String toString() {
         return "AuthorRequestDto{" +
                 "authorName='" + authorName + '\'' +
-                ", birthDate=" + birthDate +
+//                ", birthDate=" + birthDate +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
                 '}';

@@ -1,17 +1,17 @@
 package com.example.library.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.context.annotation.EnableMBeanExport;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 @Entity
+@Table(name = "authors")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String authorName;
-    private LocalDateTime birthDate;
+//    private LocalDateTime birthDate;
     private int phone;
     private String email;
 
@@ -34,13 +34,13 @@ public class Author {
         this.authorName = authorName;
     }
 
-    public LocalDateTime getBirthSate() {
-        return birthDate;
-    }
-
-    public void setBirthSate(LocalDateTime birthSate) {
-        this.birthDate = birthSate;
-    }
+//    public LocalDateTime getBirthDate() {
+//        return birthDate;
+//    }
+//
+//    public void setBirthDate(LocalDateTime birthDate) {
+//        this.birthDate = birthDate;
+//    }
 
     public int getPhone() {
         return phone;
@@ -63,7 +63,7 @@ public class Author {
         return "Author{" +
                 "id=" + id +
                 ", authorName='" + authorName + '\'' +
-                ", birthDate=" + birthDate +
+//                ", birthDate=" + birthDate +
                 ", phone=" + phone +
                 ", email='" + email + '\'' +
                 '}';

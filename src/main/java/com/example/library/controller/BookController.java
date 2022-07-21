@@ -65,10 +65,8 @@ public class BookController {
     }
 
     @GetMapping("/by-author")
-    public List<BookResponseDto> getByAuthor(@RequestParam String authorName) {
-        return bookService.getByAuthor(authorName).stream()
-                .map(bookMapper:: mapToDto)
-                .collect(Collectors.toList());
+    public List<Book> getByAuthor(@RequestParam String authorName) {
+        return bookService.getByAuthor(authorName);
     }
 
     @GetMapping("/by-author/most-selling")

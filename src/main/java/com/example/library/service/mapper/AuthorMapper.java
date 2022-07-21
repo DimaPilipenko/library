@@ -13,7 +13,7 @@ public class AuthorMapper implements RequestDtoMapper<AuthorRequestDto, Author>,
     public Author mapToModel(AuthorRequestDto dto) {
         Author author = new Author();
         author.setAuthorName(dto.getAuthorName());
-        author.setBirthSate(dto.getBirthDate());
+//        author.setBirthSate(dto.getBirthDate());
         author.setPhone(dto.getPhone());
         author.setEmail(dto.getEmail());
         return author;
@@ -22,9 +22,9 @@ public class AuthorMapper implements RequestDtoMapper<AuthorRequestDto, Author>,
     @Override
     public AuthorResponseDto mapToDto(Author author) {
         AuthorResponseDto authorResponseDto = new AuthorResponseDto();
+        authorResponseDto.setAuthorName(author.getAuthorName());
         authorResponseDto.setId(author.getId());
-        authorResponseDto.setAuthorName(authorResponseDto.getAuthorName());
-        authorResponseDto.setBirthDate(author.getBirthSate());
+//        authorResponseDto.setBirthDate(author.getBirthSate());
         authorResponseDto.setPhone(author.getPhone());
         authorResponseDto.setEmail(author.getEmail());
         return authorResponseDto;
